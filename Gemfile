@@ -26,4 +26,7 @@ end
 
 group :test do
   gem 'rspec-rails', '~>3.0.0beta1'
+  # use the version from git for not b/c earlier turnip seems to not
+  # want to work with rspec 3
+  gem 'turnip', git: 'git@github.com:jnicklas/turnip.git'
 end
