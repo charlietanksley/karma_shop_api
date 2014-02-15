@@ -14,9 +14,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# Use unicorn as the app server
-gem 'unicorn'
-
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -31,3 +28,6 @@ group :test do
   # want to work with rspec 3
   gem 'turnip', git: 'git@github.com:jnicklas/turnip.git'
 end
+
+# Use unicorn as the app server
+gem 'unicorn'
