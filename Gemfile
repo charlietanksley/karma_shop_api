@@ -20,6 +20,7 @@ gem 'unicorn'
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'pry-rails'
 end
