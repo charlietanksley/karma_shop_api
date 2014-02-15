@@ -18,3 +18,4 @@ config/initializers/secret_token.rb
 /log/*.log
 /tmp
 /.env
+/config/database.yml
