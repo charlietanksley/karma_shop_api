@@ -9,6 +9,11 @@ gem 'pg'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# Authentication
+gem 'omniauth'
+gem 'omniauth-oauth2'
+gem 'omniauth-stable', github: 'bignerdranch/omniauth-stable'
+
 # Utilities
 gem 'hashie' # make super-simple value objects
 
