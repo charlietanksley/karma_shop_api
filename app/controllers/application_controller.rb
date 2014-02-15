@@ -6,6 +6,18 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate!
 
   def authenticate!
-    true
+    current_user
+  end
+
+  def current_user
+    @current_user ||= User.find(session[:user_id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to '/auth/stable'
+  end
+  helper_method :current_user
+
+  def current_user=(user)
+    session[:user_id] = user.id
+    @current_user = user
   end
 end
