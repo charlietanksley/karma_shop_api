@@ -1,3 +1,5 @@
+require_relative 'user'
+
 class Registrar
   attr_reader :credentials, :user_info, :user_list
   def initialize(user_info: nil, credentials: nil, user_list: User)
@@ -18,7 +20,15 @@ class Registrar
       name: user_info.full_name,
       uid: user_info.uid)
 
-    user.save
-    user
+    user.save && user || NullUser.new
+  end
+
+  class NullUser
+    def null
+      nil
+    end
+    alias :email :null
+    alias :id :null
+    alias :name :null
   end
 end
