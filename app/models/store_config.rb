@@ -1,3 +1,3 @@
 module StoreConfig
-  TERM_KEY = 'terms'
+  TERM_KEY = 'lita:handlers:karma:terms'
 end
