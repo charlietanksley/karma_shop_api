@@ -3,5 +3,5 @@ KarmaShopApi::Application.routes.draw do
   resource :sign_in, only: [:new], controller: 'sign_in'
   resource :sign_out, only: [:show, :destroy], controller: 'sign_out'
 
-  root 'sign_in#new'
+  root 'web#show'
 end
