@@ -126,6 +126,7 @@ GEM
     rake (10.1.1)
     rdoc (4.1.1)
       json (~> 1.4)
+    redis (3.0.7)
     rspec (3.0.0.beta1)
       rspec-core (= 3.0.0.beta1)
       rspec-expectations (= 3.0.0.beta1)
@@ -192,6 +193,7 @@ DEPENDENCIES
   pg
   pry-rails
   rails (= 4.0.2)
+  redis
   rspec-rails (~> 3.0.0beta1)
   sdoc
   turnip!
