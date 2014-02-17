@@ -32,11 +32,11 @@ group :development, :test do
 end
 
 group :test do
+  gem 'capybara'
   gem 'database_cleaner'
-  gem 'rspec-rails', '~>3.0.0beta1'
-  # use the version from git for not b/c earlier turnip seems to not
-  # want to work with rspec 3
-  gem 'turnip', git: 'git@github.com:jnicklas/turnip.git'
+  gem 'rspec-rails', '~>2.14.1'
+  gem 'selenium-webdriver'
+  gem 'turnip', '~>1.2.1'
 end
 
 # Use unicorn as the app server

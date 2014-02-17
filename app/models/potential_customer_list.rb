@@ -1,4 +1,4 @@
-require_relative 'store_config'
+require File.join(Rails.root, 'lib/customer_data')
 
 class PotentialCustomerList
   def self.alphabetical
@@ -8,22 +8,27 @@ class PotentialCustomerList
       .done
   end
 
-  attr_reader :list, :redis
-  def initialize(list: Array.new, redis: REDIS)
+  attr_reader :list, :customer_datastore
+  def initialize(list: Array.new, customer_datastore: CustomerData::Storage.new)
     @list = list
-    @redis = redis
+    @customer_datastore = customer_datastore
   end
 
   def all
-    current_listing = redis.zrange(StoreConfig::TERM_KEY, 0, -1)
-    self.class.new(list: current_listing, redis: redis)
+    initialize_with_list(customer_datastore.all_customers)
   end
 
   def alphabetical
-    self.class.new(list: list.sort, redis: redis)
+    initialize_with_list(list.sort)
   end
 
   def done
     list
+  end
+
+  private
+
+  def initialize_with_list(list)
+    self.class.new(list: list, customer_datastore: customer_datastore)
   end
 end
