@@ -35,6 +35,7 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'rspec-rails', '~>2.14.1'
+  gem 'selenium-webdriver'
   gem 'turnip', '~>1.2.1'
 end
 
