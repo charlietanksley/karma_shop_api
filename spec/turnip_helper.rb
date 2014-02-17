@@ -1,6 +1,7 @@
 require 'turnip/capybara'
 require_relative 'rails_spec_helper'
 Dir.glob("spec/steps/**/*steps.rb") { |f| load f, true }
+ENV['REDIS_TERM_KEY'] = 'lita:handlers:karma:terms:testing'
 
 RSpec.configure do |config|
   config.before do
@@ -13,11 +14,13 @@ RSpec.configure do |config|
 end
 
 module SpecRedis
+  require File.join(Rails.root, 'lib/customer_data')
+
   def self.add_term_with_points(term, points)
-    REDIS.zadd(StoreConfig::TERM_KEY, points, term)
+    REDIS.zadd(CustomerData::Config::TERM_KEY, points, term)
   end
 
   def self.reset_database
-    REDIS.del(StoreConfig::TERM_KEY)
+    REDIS.del(CustomerData::Config::TERM_KEY)
   end
 end
