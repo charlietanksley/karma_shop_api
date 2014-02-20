@@ -9,4 +9,5 @@ KarmaShopApi::Application.routes.draw do
   end
 
   root 'web#show'
+  match '*path', to: "web#show", via: [:get, :post]
 end
