@@ -5,6 +5,7 @@ KarmaShopApi::Application.routes.draw do
 
   namespace :api do
     resource :potential_customers, only: [:show]
+    resource :customer_treasures, only: [:show]
   end
 
   root 'web#show'
