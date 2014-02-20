@@ -1,4 +1,8 @@
 require 'spec_helper'
+
+require 'capybara/rails'
+require 'capybara/rspec'
+
 # ActiveRecord
 require "yaml"
 require "active_record"
@@ -8,10 +12,10 @@ ActiveRecord::Base.establish_connection(
 
 # DatabaseCleaner
 require "database_cleaner"
+
 RSpec.configure do |config|
   config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.strategy = :truncation
   end
   config.before(:each) do
     DatabaseCleaner.start
