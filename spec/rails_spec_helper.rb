@@ -4,6 +4,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'omniauth_spec_helper'
+require_relative 'database_spec_helper'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
