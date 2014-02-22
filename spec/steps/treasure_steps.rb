@@ -1,10 +1,6 @@
 step ":customer_name has :treasure_name as a treasure" do |customer_name, treasure_name|
   customer = Customer.create(name: customer_name, treasure_shelf: TreasureShelf.new)
-  product = Product.create(attribution_text: 'anyone',
-    attribution_url: 'http://placekitten.com/g/200/300',
-    name: treasure_name,
-    price: 10,
-    src: 'http://placekitten.com/g/200/300')
+  product = Macro.create_product(name: treasure_name)
 
   purchase = Purchase.new(product: product,
     treasure_shelf: customer.treasure_shelf)
