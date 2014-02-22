@@ -19,4 +19,13 @@ class ApplicationController < ActionController::Base
   def current_user=(user)
     session[:user_id] = user.id
   end
+
+  private
+
+  def customer_name_params
+    params.permit(:customerName).reduce({}) { |acc, (k,v)|
+      acc[k.to_s.underscore.to_sym] = v
+      acc
+    }
+  end
 end
