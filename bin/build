@@ -1,0 +1,20 @@
+#!/bin/sh
+git_repo=git@github.com:charlietanksley/karma-shop-web.git
+frontend_dirname=karma-shop-web
+
+# clone frontend
+git clone $git_repo
+
+# build frontend
+cd $frontend_dirname
+npm install -g lineman bower
+npm install
+bower install
+lineman build
+
+# copy built frontend to /public
+cd ..
+rm -r -f public
+cp -r "$frontend_dirname/dist" public/
+rm -r -f $frontend_dirname
+mv public/index.html public/app.html
