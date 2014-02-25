@@ -1,8 +1,5 @@
 require 'spec_helper'
 
-require 'capybara/rails'
-require 'capybara/rspec'
-
 # ActiveRecord
 require "yaml"
 require "active_record"
