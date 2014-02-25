@@ -4,8 +4,9 @@ KarmaShopApi::Application.routes.draw do
   resource :sign_out, only: [:show, :destroy], controller: 'sign_out'
 
   namespace :api do
-    resource :potential_customers, only: [:show]
     resource :customer_treasures, only: [:show]
+    resource :potential_customers, only: [:show]
+    resources :purchases, only: [:create]
     resource :stores, only: [:show]
   end
 

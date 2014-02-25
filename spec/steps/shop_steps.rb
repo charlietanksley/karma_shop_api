@@ -1,4 +1,7 @@
 step 'I should see the sale item :name' do |name|
-  content_area = page.all('.product-details').first
-  expect(content_area).to have_content(name)
+  expect(page.find('.product-details')).to have_content(name)
+end
+
+step 'I buy :name' do |name|
+  find('.buy-now').click
 end
