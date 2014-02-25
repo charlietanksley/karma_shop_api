@@ -42,8 +42,10 @@ describe Store::Products do
 
     describe 'customer-specific product information' do
       it 'when given a customer who owns products' do
+        sample_product_two = double('Product', id: 2)
         customer = double('Customer',
-          treasures: [sample_product, double('Product', id: 2)])
+          treasures: [double('Treasure', product_id: sample_product.id),
+            double('Treasure', product_id: sample_product_two.id)])
 
         product = Store::Products.new(customer: customer,
           product_list: product_list)

@@ -29,13 +29,13 @@ module Store
       end
 
       def units_owned
-        treasure_ids.count(id)
+        owned_treasure_ids.count(id)
       end
 
       private
 
-      def treasure_ids
-        @treasure_ids ||= customer_treasures.map(&:id)
+      def owned_treasure_ids
+        @owned_treasure_ids ||= customer_treasures.map(&:product_id)
       end
     end
   end
