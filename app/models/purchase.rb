@@ -2,6 +2,11 @@ require_relative 'treasure'
 require_relative 'treasure_shelf'
 
 class Purchase
+  def self.complete(product: nil, customer: nil)
+    new(product: product, treasure_shelf: customer.treasure_shelf)
+      .complete
+  end
+
   attr_reader :product, :treasure_shelf
   def initialize(product: nil, treasure_shelf: nil)
     @product = product
