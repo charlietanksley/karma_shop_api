@@ -6,6 +6,7 @@ module CustomerData
   end
 
   def self.available_karma(term)
-    REDIS.zscore(Config::TERM_KEY, term)
+    storage = Storage.new
+    storage.available_karma(term)
   end
 end
