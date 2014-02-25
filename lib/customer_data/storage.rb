@@ -14,6 +14,12 @@ module CustomerData
     def available_karma(term)
       redis.zscore(key, term)
     end
+
+    def charge_account(term: nil, amount: nil)
+      charge = -amount
+      redis.zincrby(key, charge, term)
+    end
+
     private
 
     def all_terms_with_karma
