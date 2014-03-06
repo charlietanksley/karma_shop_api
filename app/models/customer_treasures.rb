@@ -1,6 +1,14 @@
-CustomerTreasures = Struct.new(:name) do
+require_relative 'null_customer'
+
+class CustomerTreasures
   def self.for(name)
     new(name).treasures
+  end
+
+  attr_reader :customer_list, :name
+  def initialize(name, customer_list: Customer)
+    @name = name
+    @customer_list = customer_list
   end
 
   def treasures
@@ -11,7 +19,9 @@ CustomerTreasures = Struct.new(:name) do
   private
 
   def customer
-    @customer ||= Customer.where(name: name).first
+    @customer ||=
+      customer_list.where(name: name).first ||
+      NullCustomer.new(name: name)
   end
 
   def elaborated_treasures
