@@ -11,4 +11,8 @@ class NullCustomer
   def treasures
     Array.new
   end
+
+  def treasure_shelf
+    OpenStruct.new(treasures: treasures)
+  end
 end

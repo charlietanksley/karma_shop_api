@@ -6,6 +6,7 @@ KarmaShopApi::Application.routes.draw do
   namespace :api do
     resource :customer_treasures, only: [:show]
     resource :potential_customers, only: [:show]
+    resources :products, only: [:index]
     resources :purchases, only: [:create]
     resource :stores, only: [:show]
   end
