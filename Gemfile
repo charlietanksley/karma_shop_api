@@ -15,6 +15,9 @@ gem 'omniauth'
 gem 'omniauth-oauth2'
 gem 'omniauth-stable', github: 'bignerdranch/omniauth-stable'
 
+# Monitoring
+gem 'appsignal'
+
 # Utilities
 gem 'hashie' # make super-simple value objects
 
