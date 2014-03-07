@@ -9,7 +9,7 @@ class Api::ProductsController < ApplicationController
   def create
     @product = Product.new(create_params)
     if @product.save
-      redirect_to '/products'
+      respond_with @product
     else
       render json: Hash[errors: @product.errors], status: 422
     end
