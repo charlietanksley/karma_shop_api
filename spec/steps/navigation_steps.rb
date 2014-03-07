@@ -3,7 +3,7 @@ step 'I visit the main page' do
 end
 
 step 'I visit the products page' do
-  visit root_path
+  step 'I visit the main page'
   click_link('All products')
 end
 
@@ -13,6 +13,6 @@ step 'I visit the shopping page for :customer_name' do |customer_name|
 end
 
 step 'I visit the treasure page for :customer_name' do |customer_name|
-  visit root_path
+  step 'I visit the main page'
   visit "/treasures/#{customer_name}"
 end
