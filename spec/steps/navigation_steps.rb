@@ -2,6 +2,11 @@ step 'I visit the main page' do
   visit root_path
 end
 
+step 'I visit the new product page' do
+  step 'I visit the main page'
+  click_link('New product')
+end
+
 step 'I visit the products page' do
   step 'I visit the main page'
   click_link('All products')
