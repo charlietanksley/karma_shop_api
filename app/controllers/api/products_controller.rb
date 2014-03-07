@@ -7,7 +7,7 @@ class Api::ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(create_params)
+    @product = Product.new(create_params.merge(created_by: current_user.id))
     if @product.save
       respond_with @product
     else
