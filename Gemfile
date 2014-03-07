@@ -20,6 +20,7 @@ gem 'appsignal'
 
 # Utilities
 gem 'hashie' # make super-simple value objects
+gem 'rails_12factor' # heroku wants this
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
