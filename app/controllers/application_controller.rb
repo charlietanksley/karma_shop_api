@@ -23,9 +23,8 @@ class ApplicationController < ActionController::Base
   private
 
   def customer_name_params
-    params.permit(:customerName).reduce({}) { |acc, (k,v)|
-      acc[k.to_s.underscore.to_sym] = v
-      acc
-    }
+    munger = HashMunger.new(params)
+    ActionController::Parameters.new(munger.transform(keys: munger.standard_params_chain))
+      .permit(:customer_name)
   end
 end

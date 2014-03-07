@@ -19,9 +19,9 @@ class Api::PurchasesController < ApplicationController
   private
 
   def create_purchase_params
-    params.permit(:productId).reduce({}) { |acc, (k,v)|
-      acc[k.to_s.underscore.to_sym] = v
-      acc
-    }.merge(customer_name_params)
+    munger = HashMunger.new(params)
+    ActionController::Parameters.new(munger.transform(keys: munger.standard_params_chain))
+      .permit(:product_id, :customer_name)
+      .symbolize_keys
   end
 end
